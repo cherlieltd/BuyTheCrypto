@@ -3,7 +3,7 @@ import { getFeaturedMarkets, getMarketOverview, searchMarkets } from "@/lib/mark
 import { ApiError } from "@/lib/errors";
 
 export async function GET(request: Request) {
-  return handleApi(request, { access: "public", limit: { name: "markets", limit: 60, windowMs: 60_000 } }, async () => {
+  return handleApi(request, { access: "public", limit: { name: "markets", limit: 120, windowMs: 60_000 } }, async () => {
     const url = new URL(request.url);
     const currency = (url.searchParams.get("currency") || "usd").toLowerCase();
     const query = url.searchParams.get("q");

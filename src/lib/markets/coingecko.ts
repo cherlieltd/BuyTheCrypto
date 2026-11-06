@@ -62,7 +62,7 @@ async function coinGecko(path: string) {
 
 export async function getMarketOverview(currency = "usd"): Promise<MarketSnapshot> {
   const vs = currency.toLowerCase();
-  const result = await cachedFetch(`markets:${vs}`, 60_000, async () => {
+  const result = await cachedFetch(`markets:${vs}`, 15_000, async () => {
     const data = (await coinGecko(
       `/coins/markets?vs_currency=${encodeURIComponent(vs)}&order=market_cap_desc&per_page=24&page=1&sparkline=true&price_change_percentage=24h`,
     )) as Array<Parameters<typeof normalizeMarketCoin>[0] & { sparkline_in_7d?: { price: number[] } }>;
@@ -76,7 +76,7 @@ export async function getMarketOverview(currency = "usd"): Promise<MarketSnapsho
 
 export async function getFeaturedMarkets(currency = "usd") {
   const vs = currency.toLowerCase();
-  const result = await cachedFetch(`featured:${vs}`, 60_000, async () => {
+  const result = await cachedFetch(`featured:${vs}`, 15_000, async () => {
     const data = (await coinGecko(
       `/coins/markets?vs_currency=${encodeURIComponent(vs)}&ids=bitcoin,ethereum,tether,solana&order=market_cap_desc&sparkline=true&price_change_percentage=24h`,
     )) as Array<Parameters<typeof normalizeMarketCoin>[0] & { sparkline_in_7d?: { price: number[] } }>;
