@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { BrandLogo } from "@/components/site/brand-logo";
 import { Button } from "@/components/ui/button";
 import { useUiStore } from "@/lib/ui-store";
 
@@ -23,8 +24,8 @@ export function SiteHeader({ signedIn }: { signedIn: boolean }) {
         Skip to content
       </a>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 font-display text-base font-semibold tracking-tight text-foreground">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent text-sm font-bold text-accent-foreground">B</span>
+        <Link href="/" className="flex items-center gap-2.5 font-display text-base font-semibold tracking-tight text-foreground">
+          <BrandLogo size={36} className="h-9 w-9 rounded-xl shadow-sm shadow-blue-500/20" />
           BuyTheCrypto
         </Link>
         <nav className="hidden items-center gap-6 text-sm text-muted lg:flex" aria-label="Primary">

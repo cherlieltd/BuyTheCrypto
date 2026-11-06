@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/site/brand-logo";
 
 const groups = [
   {
@@ -34,10 +35,10 @@ export function SiteFooter() {
     <footer className="mt-20 border-t border-border bg-card">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2 font-display font-semibold">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent text-xs font-bold text-accent-foreground">B</span>
+          <Link href="/" className="inline-flex items-center gap-2.5 font-display font-semibold text-foreground">
+            <BrandLogo size={32} className="h-8 w-8 rounded-lg shadow-sm shadow-blue-500/20" />
             BuyTheCrypto
-          </div>
+          </Link>
           <p className="mt-4 text-sm leading-6 text-muted">
             A non-custodial cryptocurrency purchasing platform. Payments, identity checks, and crypto delivery are handled by Transak.
           </p>

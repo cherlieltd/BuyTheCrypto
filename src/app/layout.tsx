@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     siteName: "BuyTheCrypto",
     type: "website",
   },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon", type: "image/png" }],
+  },
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
