@@ -51,10 +51,9 @@ A browser `TRANSAK_ORDER_SUCCESSFUL` event only asks the server to refresh the o
 1. Import the GitHub repository.
 2. Framework preset: Next.js.
 3. Add every variable from `.env.example` in the Vercel project. Use staging Transak values until KYB and webhook registration are finished.
-4. Attach `buythecrypto.com`.
-5. `vercel.json` permanently redirects `www.buythecrypto.com` to `https://buythecrypto.com`.
-6. In Cloudflare DNS, point the apex and `www` at Vercel with the records Vercel displays. Proxying through Cloudflare is optional. If the proxy is enabled, use Full (strict) TLS.
-7. Deploy with `git push`. Do not promote a production Transak key until staging checkout, webhook verification, and order history have been exercised.
+4. Attach `buythecrypto.com` and `www.buythecrypto.com`. In Vercel Domains, set `buythecrypto.com` as the primary domain so Vercel redirects `www` to the apex. Do not add a second host redirect in `vercel.json`; that fights Vercel's primary-domain redirect and breaks CSS and JS.
+5. In Cloudflare DNS, point the apex and `www` at Vercel with the records Vercel displays. Proxying through Cloudflare is optional. If the proxy is enabled, use Full (strict) TLS.
+6. Deploy with `git push`. Do not promote a production Transak key until staging checkout, webhook verification, and order history have been exercised.
 
 ## 5. Supporting services
 
