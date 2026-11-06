@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Clock3, ShieldCheck, Wallet } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Wallet } from "lucide-react";
 import { BuyCryptoForm } from "@/components/buy/buy-crypto-form";
+import { PaymentMethodsSection } from "@/components/home/payment-methods";
 import { Reveal } from "@/components/home/reveal";
 import { LiveHomeMarkets } from "@/components/markets/live-home-markets";
 import { Button } from "@/components/ui/button";
@@ -146,35 +147,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <Reveal>
-          <h2 className="font-display text-3xl font-semibold tracking-tight">Supported payment methods</h2>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
-            Methods are shown from the current Transak fiat coverage response. Availability still depends on your location, the asset, and Transak&apos;s review at checkout.
-          </p>
-        </Reveal>
-        {!payments.configured ? (
-          <p className="mt-8 rounded-2xl border border-dashed border-border bg-card p-6 text-sm text-muted">
-            Payment methods appear here after the Transak partner API key is configured. They are not listed from a static catalog.
-          </p>
-        ) : payments.methods.length === 0 ? (
-          <p className="mt-8 text-sm text-muted">Transak did not return active payment methods just now.</p>
-        ) : (
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {payments.methods.map((method) => (
-              <div key={method.id} className="rounded-2xl border border-border bg-card px-4 py-4">
-                <p className="font-medium text-foreground">{method.name}</p>
-                {method.processingTime ? (
-                  <p className="mt-2 flex items-center gap-1.5 text-xs text-muted">
-                    <Clock3 className="h-3.5 w-3.5" />
-                    {method.processingTime}
-                  </p>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+      <PaymentMethodsSection configured={payments.configured} methods={payments.methods} />
 
       <section className="mx-auto max-w-6xl px-4 pb-8">
         <Reveal>
