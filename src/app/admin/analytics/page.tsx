@@ -20,8 +20,8 @@ export default async function AnalyticsPage() {
               <span>{label}</span>
               <span>{value}</span>
             </div>
-            <div className="h-2 rounded-full bg-white/10">
-              <div className="h-2 rounded-full bg-emerald-400" style={{ width: `${Math.min(100, (Number(value) / total) * 100)}%` }} />
+            <div className="h-2 rounded-full bg-surface">
+              <div className="h-2 rounded-full bg-accent" style={{ width: `${Math.min(100, (Number(value) / total) * 100)}%` }} />
             </div>
           </div>
         ))}

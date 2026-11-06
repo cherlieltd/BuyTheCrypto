@@ -169,18 +169,18 @@ export function BuyCryptoForm({ initialSymbol, initialNetwork }: { initialSymbol
             <p className="text-xs text-muted">Do not enter a seed phrase or private key. BuyTheCrypto cannot recover one.</p>
           </div>
           {form.formState.errors.walletAddress ? (
-            <p className="text-sm text-rose-300">{form.formState.errors.walletAddress.message}</p>
+            <p className="text-sm text-danger">{form.formState.errors.walletAddress.message}</p>
           ) : null}
           {assets.isLoading || fiats.isLoading ? <p className="text-sm text-muted">Loading supported purchase options from Transak…</p> : null}
-          {assets.data && !assets.data.configured ? <p className="text-sm text-amber-200">{assets.data.message}</p> : null}
-          {assets.isError || fiats.isError ? <p className="text-sm text-amber-200">Supported purchase options could not be loaded from Transak.</p> : null}
+          {assets.data && !assets.data.configured ? <p className="text-sm text-warning">{assets.data.message}</p> : null}
+          {assets.isError || fiats.isError ? <p className="text-sm text-warning">Supported purchase options could not be loaded from Transak.</p> : null}
           {quote.data?.quote ? (
-            <p className="rounded-2xl bg-black/20 p-4 text-sm text-muted">
+            <p className="rounded-xl bg-surface p-4 text-sm text-muted">
               Transak estimate: {quote.data.quote.cryptoAmount ?? "—"} {selectedSymbol}
               {quote.data.quote.totalFee != null ? ` · fee ${quote.data.quote.totalFee}` : ""}. {quote.data.notice}
             </p>
           ) : null}
-          {notice ? <p className="text-sm text-emerald-200">{notice}</p> : null}
+          {notice ? <p className="text-sm text-success">{notice}</p> : null}
           <Button type="submit" disabled={checkout.isPending || assets.data?.configured !== true || fiats.data?.configured !== true}>
             {checkout.isPending ? "Opening Transak…" : "Continue to Transak"}
           </Button>

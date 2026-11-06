@@ -12,7 +12,7 @@ export function Sparkline({ prices, width = 128, height = 40 }: { prices: number
   const up = prices.at(-1)! >= prices[0]!;
   return (
     <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} role="img" aria-label="Price trend">
-      <polyline fill="none" stroke={up ? "#34d399" : "#fb7185"} strokeWidth="2" points={points} />
+      <polyline fill="none" stroke={up ? "#16c784" : "#ea3943"} strokeWidth="2" points={points} />
     </svg>
   );
 }
@@ -35,8 +35,8 @@ export function PriceChart({ prices }: { prices: Array<[number, number]> }) {
   const area = `0,${height} ${line} ${width},${height}`;
   return (
     <svg viewBox={`0 0 ${width} ${height}`} className="h-60 w-full" role="img" aria-label="Historical price chart">
-      <polygon points={area} fill="rgba(52,211,153,0.12)" />
-      <polyline fill="none" stroke="#34d399" strokeWidth="3" points={line} />
+      <polygon points={area} fill="rgba(55,114,255,0.12)" />
+      <polyline fill="none" stroke="#3772ff" strokeWidth="3" points={line} />
     </svg>
   );
 }

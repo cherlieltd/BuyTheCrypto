@@ -2,10 +2,11 @@ import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
 const tones = {
-  neutral: "bg-white/10 text-foreground",
-  success: "bg-emerald-400/15 text-emerald-300",
-  warning: "bg-amber-300/15 text-amber-200",
-  danger: "bg-rose-400/15 text-rose-200",
+  neutral: "bg-surface text-muted",
+  success: "bg-emerald-50 text-success",
+  warning: "bg-amber-50 text-warning",
+  danger: "bg-rose-50 text-danger",
+  accent: "bg-blue-50 text-accent",
 };
 
 export function Badge({
@@ -14,6 +15,6 @@ export function Badge({
   ...props
 }: ComponentProps<"span"> & { tone?: keyof typeof tones }) {
   return (
-    <span className={cn("inline-flex rounded-full px-2.5 py-1 text-xs font-medium", tones[tone], className)} {...props} />
+    <span className={cn("inline-flex rounded-lg px-2.5 py-1 text-xs font-semibold", tones[tone], className)} {...props} />
   );
 }

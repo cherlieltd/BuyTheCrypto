@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
-
-export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/auth";
 import { ApiError } from "@/lib/errors";
+
+export const dynamic = "force-dynamic";
 
 const links = [
   ["/admin", "Overview"],
@@ -25,10 +25,10 @@ export default async function AdminLayout({ children }: { children: ReactNode })
   }
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-[200px_1fr]">
-      <nav className="flex gap-2 overflow-x-auto md:flex-col" aria-label="Administration">
+    <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-[220px_1fr]">
+      <nav className="flex gap-2 overflow-x-auto rounded-2xl border border-border bg-card p-2 md:flex-col" aria-label="Administration">
         {links.map(([href, label]) => (
-          <Link key={href} href={href} className="rounded-full px-3 py-2 text-sm text-muted hover:bg-white/5 hover:text-foreground">
+          <Link key={href} href={href} className="rounded-xl px-3 py-2 text-sm text-muted hover:bg-surface hover:text-foreground">
             {label}
           </Link>
         ))}

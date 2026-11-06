@@ -8,6 +8,7 @@ export type MarketQuote = {
   volume24h: number;
   change24h: number | null;
   updatedAt: string;
+  sparkline?: number[];
 };
 
 export function normalizeMarketCoin(coin: {

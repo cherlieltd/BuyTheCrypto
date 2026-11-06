@@ -20,7 +20,7 @@ export function SupportAdmin({ tickets }: { tickets: Ticket[] }) {
   return (
     <ul className="space-y-3">
       {items.map((ticket) => (
-        <li key={ticket.id} className="rounded-2xl border border-white/10 p-4">
+        <li key={ticket.id} className="rounded-2xl border border-border p-4">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-medium">{ticket.subject}</p>

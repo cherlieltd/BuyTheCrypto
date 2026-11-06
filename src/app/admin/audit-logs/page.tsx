@@ -11,7 +11,7 @@ export default async function AuditLogPage() {
       <h1 className="text-3xl font-semibold">Audit logs</h1>
       <ul className="mt-6 space-y-2 text-sm">
         {logs.map((log) => (
-          <li key={log.id} className="rounded-2xl border border-white/10 px-4 py-3">
+          <li key={log.id} className="rounded-2xl border border-border px-4 py-3">
             <span className="font-medium">{log.action}</span>
             <span className="text-muted"> · {log.targetType} {log.targetId ?? ""} · {formatTimestamp(log.createdAt)}</span>
           </li>

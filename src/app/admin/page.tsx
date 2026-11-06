@@ -24,7 +24,7 @@ export default async function AdminHomePage() {
       <p className="mt-2 text-sm text-muted">Counts reflect records in BuyTheCrypto. They do not change a payment inside Transak.</p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {cards.map(([label, value]) => (
-          <div key={String(label)} className="rounded-3xl border border-white/10 p-5">
+          <div key={String(label)} className="rounded-3xl border border-border p-5">
             <p className="text-sm text-muted">{label}</p>
             <p className="mt-2 text-3xl font-semibold">{value}</p>
           </div>
@@ -34,7 +34,7 @@ export default async function AdminHomePage() {
         <h2 className="font-semibold">Recent orders</h2>
         <ul className="mt-3 space-y-2 text-sm">
           {recentOrders.map((order) => (
-            <li key={order.id} className="flex justify-between gap-4 rounded-2xl border border-white/10 px-4 py-3">
+            <li key={order.id} className="flex justify-between gap-4 rounded-2xl border border-border px-4 py-3">
               <span>{order.cryptoCurrency}</span>
               <span className="text-muted">{statusLabel(order.status)} · {formatTimestamp(order.createdAt)}</span>
             </li>

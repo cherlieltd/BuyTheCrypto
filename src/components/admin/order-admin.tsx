@@ -28,13 +28,13 @@ export function OrderAdmin({ initialOrders }: { initialOrders: Order[] }) {
     <div>
       {message ? <p className="mb-4 text-sm text-muted">{message}</p> : null}
       <div className="mb-4">
-        <a className="text-sm text-emerald-300" href="/api/admin/orders?format=csv">
+        <a className="text-sm text-accent" href="/api/admin/orders?format=csv">
           Export CSV
         </a>
       </div>
       <ul className="space-y-3">
         {orders.map((order) => (
-          <li key={order.id} className="flex flex-col gap-3 rounded-2xl border border-white/10 p-4 sm:flex-row sm:items-center sm:justify-between">
+          <li key={order.id} className="flex flex-col gap-3 rounded-2xl border border-border p-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-medium">
                 {order.fiatAmount} {order.fiatCurrency} · {order.cryptoCurrency}

@@ -20,7 +20,7 @@ export default async function DashboardPage() {
       </div>
       <div className="mt-8 space-y-3">
         {orders.slice(0, 5).map((order) => (
-          <Link key={order.id} href="/dashboard/orders" className="flex items-center justify-between rounded-2xl border border-white/10 px-4 py-3">
+          <Link key={order.id} href="/dashboard/orders" className="flex items-center justify-between rounded-2xl border border-border px-4 py-3">
             <span>
               {formatFiat(Number(order.fiatAmount), order.fiatCurrency)} · {order.cryptoCurrency}
             </span>
@@ -35,7 +35,7 @@ export default async function DashboardPage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-card p-5">
+    <div className="rounded-3xl border border-border bg-card p-5">
       <p className="text-sm text-muted">{label}</p>
       <p className="mt-2 text-3xl font-semibold">{value}</p>
     </div>

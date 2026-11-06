@@ -24,7 +24,7 @@ export default async function OrdersPage() {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr key={order.id} className="border-t border-white/10">
+              <tr key={order.id} className="border-t border-border">
                 <td className="py-4">{formatTimestamp(order.createdAt)}</td>
                 <td>
                   {order.cryptoCurrency}

@@ -13,14 +13,14 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
         Refresh asks Transak for the current order. It cannot mark a payment successful or alter delivery.
       </p>
       <form className="mb-6 flex flex-wrap gap-2 text-sm">
-        <input name="q" defaultValue={params.q} placeholder="Search" className="h-10 rounded-full border border-white/10 bg-black/20 px-4" aria-label="Search orders" />
-        <select name="status" defaultValue={params.status ?? ""} className="h-10 rounded-full border border-white/10 bg-black/20 px-4" aria-label="Filter status">
+        <input name="q" defaultValue={params.q} placeholder="Search" className="h-10 rounded-xl border border-border bg-card px-4" aria-label="Search orders" />
+        <select name="status" defaultValue={params.status ?? ""} className="h-10 rounded-xl border border-border bg-card px-4" aria-label="Filter status">
           <option value="">All statuses</option>
           {["CHECKOUT_OPENED", "AWAITING_PAYMENT_FROM_USER", "PROCESSING", "COMPLETED", "FAILED", "EXPIRED", "REFUNDED", "CANCELLED"].map((status) => (
             <option key={status} value={status}>{status}</option>
           ))}
         </select>
-        <button className="rounded-full border border-white/15 px-4">Filter</button>
+        <button className="rounded-xl border border-border bg-card px-4 font-medium">Filter</button>
       </form>
       <OrderAdmin
         initialOrders={orders.map((order) => ({

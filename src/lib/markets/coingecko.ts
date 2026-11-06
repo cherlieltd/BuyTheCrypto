@@ -64,9 +64,12 @@ export async function getMarketOverview(currency = "usd"): Promise<MarketSnapsho
   const vs = currency.toLowerCase();
   const result = await cachedFetch(`markets:${vs}`, 60_000, async () => {
     const data = (await coinGecko(
-      `/coins/markets?vs_currency=${encodeURIComponent(vs)}&order=market_cap_desc&per_page=24&page=1&sparkline=false&price_change_percentage=24h`,
-    )) as Parameters<typeof normalizeMarketCoin>[0][];
-    return data.map(normalizeMarketCoin);
+      `/coins/markets?vs_currency=${encodeURIComponent(vs)}&order=market_cap_desc&per_page=24&page=1&sparkline=true&price_change_percentage=24h`,
+    )) as Array<Parameters<typeof normalizeMarketCoin>[0] & { sparkline_in_7d?: { price: number[] } }>;
+    return data.map((coin) => ({
+      ...normalizeMarketCoin(coin),
+      sparkline: coin.sparkline_in_7d?.price ?? [],
+    }));
   });
   return { currency: vs, updatedAt: result.updatedAt, stale: result.stale, coins: result.value };
 }
@@ -75,7 +78,7 @@ export async function getFeaturedMarkets(currency = "usd") {
   const vs = currency.toLowerCase();
   const result = await cachedFetch(`featured:${vs}`, 60_000, async () => {
     const data = (await coinGecko(
-      `/coins/markets?vs_currency=${encodeURIComponent(vs)}&ids=bitcoin,ethereum,solana&order=market_cap_desc&sparkline=true&price_change_percentage=24h`,
+      `/coins/markets?vs_currency=${encodeURIComponent(vs)}&ids=bitcoin,ethereum,tether,solana&order=market_cap_desc&sparkline=true&price_change_percentage=24h`,
     )) as Array<Parameters<typeof normalizeMarketCoin>[0] & { sparkline_in_7d?: { price: number[] } }>;
     return data.map((coin) => ({
       ...normalizeMarketCoin(coin),

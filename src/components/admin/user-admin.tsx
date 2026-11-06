@@ -37,7 +37,7 @@ export function UserAdmin({ initialUsers }: { initialUsers: UserRow[] }) {
       {message ? <p className="mt-3 text-sm text-emerald-200">{message}</p> : null}
       <ul className="mt-6 space-y-3">
         {users.map((user) => (
-          <li key={user.id} className="rounded-2xl border border-white/10 p-4">
+          <li key={user.id} className="rounded-2xl border border-border p-4">
             <p className="font-medium">{user.fullName || "Unnamed"}</p>
             <p className="text-sm text-muted">{user.email}</p>
             <p className="mt-1 text-xs text-muted">Roles: {(user.roles ?? []).filter(Boolean).join(", ") || "none"}</p>
