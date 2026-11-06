@@ -13,7 +13,7 @@ function paymentVisual(method: PaymentMethodItem) {
     return { src: "/images/payments/apple-pay.svg", tone: "from-slate-900 to-slate-700", label: "Apple Pay" };
   }
   if (key.includes("google")) {
-    return { src: "/images/payments/google-pay.svg", tone: "from-white to-slate-50", label: "Google Pay" };
+    return { src: "/images/payments/google-pay.svg", tone: "from-card to-surface", label: "Google Pay" };
   }
   if (key.includes("wire")) {
     return { src: "/images/payments/wire.svg", tone: "from-emerald-50 to-teal-50", label: "Wire" };
@@ -72,7 +72,7 @@ export function PaymentMethodsSection({
                         </span>
                       </div>
                       {method.processingTime ? (
-                        <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-accent">
+                        <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-surface px-2.5 py-1 text-xs font-medium text-accent">
                           <Clock3 className="h-3.5 w-3.5" />
                           {method.processingTime}
                         </p>

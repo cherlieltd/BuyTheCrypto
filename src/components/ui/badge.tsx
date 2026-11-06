@@ -6,7 +6,7 @@ const tones = {
   success: "bg-emerald-50 text-success",
   warning: "bg-amber-50 text-warning",
   danger: "bg-rose-50 text-danger",
-  accent: "bg-blue-50 text-accent",
+  accent: "bg-surface text-accent",
 };
 
 export function Badge({

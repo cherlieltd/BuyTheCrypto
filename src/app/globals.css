@@ -15,8 +15,28 @@
   --warning: #f59e0b;
   --ring: #3772ff;
   --surface: #eef1f8;
+  --hero-glow: rgba(55, 114, 255, 0.12);
+  --hero-glow-alt: rgba(22, 199, 132, 0.08);
   --font-sans: var(--font-dm-sans);
   --font-display: var(--font-sora);
+}
+
+.dark {
+  --background: #07111f;
+  --foreground: #e8eef8;
+  --card: #101a2b;
+  --card-foreground: #e8eef8;
+  --muted: #93a4bd;
+  --border: rgba(148, 163, 184, 0.18);
+  --accent: #4c82ff;
+  --accent-foreground: #ffffff;
+  --success: #34d399;
+  --danger: #fb7185;
+  --warning: #fbbf24;
+  --ring: #4c82ff;
+  --surface: #0c1626;
+  --hero-glow: rgba(76, 130, 255, 0.16);
+  --hero-glow-alt: rgba(52, 211, 153, 0.08);
 }
 
 @theme inline {
@@ -46,8 +66,8 @@ html {
 
 body {
   background:
-    radial-gradient(900px 420px at 88% -8%, rgba(55, 114, 255, 0.12), transparent 55%),
-    radial-gradient(700px 360px at -5% 8%, rgba(22, 199, 132, 0.08), transparent 50%),
+    radial-gradient(900px 420px at 88% -8%, var(--hero-glow), transparent 55%),
+    radial-gradient(700px 360px at -5% 8%, var(--hero-glow-alt), transparent 50%),
     var(--background);
   color: var(--foreground);
   font-family: var(--font-dm-sans), sans-serif;

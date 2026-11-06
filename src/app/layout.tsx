@@ -32,10 +32,28 @@ export const metadata: Metadata = {
   },
 };
 
+const themeInitScript = `
+(() => {
+  try {
+    const key = "buythecrypto-theme";
+    const stored = localStorage.getItem(key);
+    const theme = stored === "light" || stored === "dark"
+      ? stored
+      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    root.style.colorScheme = theme;
+  } catch {}
+})();
+`;
+
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const user = await getAuthUser();
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${dmSans.variable} ${sora.variable} h-full antialiased`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${dmSans.variable} ${sora.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-full">
         <Providers>
           <SiteHeader signedIn={Boolean(user)} />

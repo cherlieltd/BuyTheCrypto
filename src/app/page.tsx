@@ -59,7 +59,7 @@ export default async function HomePage() {
   return (
     <main>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(55,114,255,0.16),transparent_42%),linear-gradient(#f7f8fc,#eef2ff)]" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,var(--hero-glow),transparent_42%),linear-gradient(var(--background),var(--surface))]" />
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-[0.95fr_1.05fr] lg:py-20">
           <Reveal immediate>
             <p className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-accent">BuyTheCrypto</p>
@@ -155,7 +155,7 @@ export default async function HomePage() {
             <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_auto]">
               <div>
                 <h2 className="font-display text-3xl font-semibold tracking-tight">Ready to buy crypto into your wallet?</h2>
-                <p className="mt-3 max-w-2xl text-blue-50">
+                <p className="mt-3 max-w-2xl text-white/80">
                   Create an account to track orders, or go straight to checkout and complete payment with Transak.
                 </p>
               </div>

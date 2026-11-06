@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { BrandLogo } from "@/components/site/brand-logo";
+import { ThemeToggle } from "@/components/site/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { useUiStore } from "@/lib/ui-store";
 
@@ -36,6 +37,7 @@ export function SiteHeader({ signedIn }: { signedIn: boolean }) {
           ))}
         </nav>
         <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
           {signedIn ? (
             <Button asChild variant="outline">
               <Link href="/dashboard">Dashboard</Link>
@@ -49,9 +51,12 @@ export function SiteHeader({ signedIn }: { signedIn: boolean }) {
             <Link href="/buy-crypto">Buy Crypto</Link>
           </Button>
         </div>
-        <button className="rounded-xl p-2 text-foreground lg:hidden" aria-expanded={open} aria-label="Open menu" onClick={() => setOpen(!open)}>
-          {open ? <X /> : <Menu />}
-        </button>
+        <div className="flex items-center gap-1 lg:hidden">
+          <ThemeToggle />
+          <button className="rounded-xl p-2 text-foreground" aria-expanded={open} aria-label="Open menu" onClick={() => setOpen(!open)}>
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
       {open ? (
         <nav className="space-y-1 border-t border-border px-4 py-4 lg:hidden" aria-label="Mobile">

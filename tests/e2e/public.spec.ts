@@ -31,3 +31,13 @@ test("mobile navigation can be opened", async ({ page }) => {
   await page.getByRole("button", { name: "Open menu" }).click();
   await expect(page.getByRole("navigation", { name: "Mobile" })).toBeVisible();
 });
+
+test("theme toggle switches light and dark", async ({ page }) => {
+  await page.goto("/");
+  const toggle = page.getByRole("button", { name: /Switch to (dark|light) mode/ }).first();
+  await expect(toggle).toBeVisible();
+  const before = await page.locator("html").getAttribute("class");
+  await toggle.click();
+  const after = await page.locator("html").getAttribute("class");
+  expect(Boolean(before?.includes("dark"))).not.toBe(Boolean(after?.includes("dark")));
+});
