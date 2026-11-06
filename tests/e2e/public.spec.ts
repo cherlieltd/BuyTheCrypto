@@ -3,9 +3,9 @@ import { expect, test } from "@playwright/test";
 test("homepage explains the purchase path", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Buy crypto simply and securely" })).toBeVisible();
+  await expect(page.getByLabel("External wallet address")).toBeVisible();
   await page.locator("a:visible", { hasText: "Buy Crypto" }).first().click();
   await expect(page).toHaveURL(/\/buy-crypto/);
-  await expect(page.getByLabel("External wallet address")).toBeVisible();
 });
 
 test("markets page shows a timestamped table", async ({ page }) => {

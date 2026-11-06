@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Clock3, ShieldCheck, Wallet } from "lucide-react";
+import { CheckCircle2, Clock3, ShieldCheck, Wallet } from "lucide-react";
+import { BuyCryptoForm } from "@/components/buy/buy-crypto-form";
 import { Reveal } from "@/components/home/reveal";
 import { Sparkline } from "@/components/markets/charts";
 import { Badge } from "@/components/ui/badge";
@@ -70,28 +71,14 @@ export default async function HomePage() {
             <p className="mt-5 max-w-lg text-lg leading-8 text-muted">
               Explore market prices, send crypto to your own wallet, and complete checkout with Transak.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg">
-                <Link href="/buy-crypto">
-                  Buy Crypto <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
+            <div className="mt-8">
               <Button asChild size="lg" variant="outline">
                 <Link href="/markets">Explore Markets</Link>
               </Button>
             </div>
           </Reveal>
           <Reveal immediate delay={0.08}>
-            <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem]">
-              <Image
-                src="/images/hero-buythecrypto.jpg"
-                alt="BuyTheCrypto checkout illustration with a phone, wallet, and market chart"
-                fill
-                priority
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 560px"
-              />
-            </div>
+            <BuyCryptoForm />
           </Reveal>
         </div>
       </section>
